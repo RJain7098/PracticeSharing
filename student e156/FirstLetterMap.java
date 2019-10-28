@@ -29,16 +29,23 @@ public class FirstLetterMap
             // Use the Java 8 merge method
             if (words.containsKey(c.toString()))
             {
-               String words = words.get(c.toString()); 
-               words += word; 
-               words.put(c.toString(), words); 
+               String toAdd = words.get(c.toString()); 
+               toAdd += word; 
+               words.put(c.toString(), toAdd + " "); 
+            }
+            else
+            {
+               words.put(c.toString(), word + " "); 
             }
 
          }
 
          // Print the map here in this form
          // a: [a, able, aardvark]
-         
+         for (String key : words.keySet())
+         {
+            System.out.println(key + ": " + words.get(key)); 
+         }
          
       }
       catch (FileNotFoundException e)
